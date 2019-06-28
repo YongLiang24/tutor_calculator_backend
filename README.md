@@ -5,6 +5,7 @@ Please have PostgreqSql installed when running locally.
 
 ### rails s or rails server
 Run "rails s" or "rails server" to start a rail local server.
+--------------------------------------------------------------------------
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
