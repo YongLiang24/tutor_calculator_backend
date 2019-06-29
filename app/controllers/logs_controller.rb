@@ -11,16 +11,23 @@ class LogsController < ApplicationController
   end
 
   def update
-    @logs = Log.find(log_params[:id])
-    @logs.results = @logs.results << log_params[:results]
-    @logs.save
-    render json: @logs
+
+  @logs = Log.find(log_params[:id])
+    if log_params[:isClear]
+      @logs.results.clear
+      @logs.save
+      render json: @logs
+    else
+      @logs.results = @logs.results << log_params[:results]
+      @logs.save
+      render json: @logs
+    end
   end
 
   private
 
   def log_params
-    params.permit(:log, :results, :id, results: [])
+    params.permit(:isClear, :log, :results, :id, results: [])
   end
 
 end
